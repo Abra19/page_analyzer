@@ -1,5 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Abra19/python-project-83/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Abra19/python-project-83/actions)
+[![Python CI](https://github.com/Abra19/python-project-83/actions/workflows/python_ci.yml/badge.svg)](https://github.com/Abra19/python-project-83/actions/workflows/python_ci.yml)
 
 ### Descriptions
 This project implements an application based on the Flask framework. The app analyses the selected pages for SEO suitability
