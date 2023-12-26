@@ -1,1 +1,0 @@
-/*PGPASSWORD=9OOAKNOT3MZDIhJsRdmgNePsinAHl6jr psql -h dpg-cm5jfd6d3nmc73anmmug-a.oregon-postgres.render.com -U page_analyzer_postgres_user page_analyzer_postgres */
