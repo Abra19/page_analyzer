@@ -24,5 +24,5 @@ This project implements an application based on the Flask framework. The app ana
 5. Start app 
   `make start`
 
-### [Try the application](https://first-flask-app-lbov.onrender.com/)
+### [Try the application](https://page-analyzer-f6z5.onrender.com)
 
