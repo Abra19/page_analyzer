@@ -2,6 +2,7 @@ import validators
 
 MAX_URL_LENGTH = 255
 
+
 def validate(url):
     errors = []
     if not url:

@@ -12,7 +12,7 @@ from flask import (
 )
 
 from page_analyzer.validate import validate
-from page_analyzer.normalize import normalize_url
+# from page_analyzer.normalize import normalize_url
 
 load_dotenv()
 
@@ -25,15 +25,17 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 def main():
     return render_template(
         'index.html',
-        url = '',
-        messages = []
+        url='',
+        messages=[]
     )
+
 
 @app.get('/urls')
 def get_urls():
     return render_template(
         'urls.html',
     )
+
 
 @app.post('/urls')
 def post_new_url():
@@ -45,20 +47,16 @@ def post_new_url():
             flash(error, 'danger')
         messages = get_flashed_messages(with_categories=True)
         return render_template(
-        'index.html',
-        url = url,
-        messages = messages
-    )
-
-
-
-
-
+            'index.html',
+            url=url,
+            messages=messages
+        )
 
     return render_template(
         'urls.html',
         # messages=messages
     )
+
 
 @app.errorhandler(404)
 def page_not_found(error):
