@@ -1,5 +1,11 @@
 {% extends 'layouts/base_layout.html' %}
 
+{% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
 {% block content %}
 
 <main class="flex-grow-1">
