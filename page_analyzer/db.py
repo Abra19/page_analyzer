@@ -12,22 +12,21 @@ def connect_db():
     return connect(DATABASE_URL)
 
 
-def get_data_by_name(url):
+def get_data_by_param(query, param):
     conn = connect_db()
     with conn.cursor(cursor_factory=extras.NamedTupleCursor) as curs:
-        curs.execute('SELECT * FROM urls WHERE name=%s', (url,))
+        curs.execute(query, (param,))
         existing = curs.fetchone()
     conn.close()
     return existing
+
+
+def get_data_by_name(url):
+    return get_data_by_param('SELECT * FROM urls WHERE name=%s', url)
 
 
 def get_data_by_id(id):
-    conn = connect_db()
-    with conn.cursor(cursor_factory=extras.NamedTupleCursor) as curs:
-        curs.execute('SELECT * FROM urls WHERE id=%s', (id,))
-        existing = curs.fetchone()
-    conn.close()
-    return existing
+    return get_data_by_param('SELECT * FROM urls WHERE id=%s', id)
 
 
 def get_checks_by_id(url_id):
