@@ -17,7 +17,9 @@ from page_analyzer.db import (
     get_data_by_name,
     get_data_by_id,
     get_all_urls,
+    get_checks_by_id,
     add_url,
+    add_check,
 )
 
 load_dotenv()
@@ -47,7 +49,7 @@ def get_urls():
     urls = get_all_urls()
     return render_template(
         'urls.html',
-        urls=urls[::-1]
+        urls=urls
     )
 
 
@@ -92,12 +94,20 @@ def get_url_id(id):
         Show choiced url's page
     """
     url = get_data_by_id(id)
+    checks = get_checks_by_id(id)
     messages = get_flashed_messages(with_categories=True)
     return render_template(
         'url.html',
         url=url,
-        messages=messages
+        messages=messages,
+        checks = checks[::-1]
     )
+
+
+@app.post('/urls/<id>/checks')
+def post_checks(id):
+    add_check(id)
+    return redirect(url_for('get_url_id', id=id), 302)
 
 
 @app.errorhandler(404)
