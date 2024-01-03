@@ -100,7 +100,7 @@ def get_url_id(id):
         'url.html',
         url=url,
         messages=messages,
-        checks = checks[::-1]
+        checks=checks[::-1]
     )
 
 

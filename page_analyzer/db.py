@@ -50,7 +50,8 @@ def get_all_urls():
                 MAX(url_checks.created_at) AS last_check
             FROM urls
             LEFT JOIN url_checks ON urls.id = url_checks.url_id
-            GROUP BY urls.id, urls.name, url_checks.status_code ORDER BY urls.id DESC;     
+            GROUP BY urls.id, urls.name, url_checks.status_code
+            ORDER BY urls.id DESC;
         """
         curs.execute(query_select)
         urls = curs.fetchall()
