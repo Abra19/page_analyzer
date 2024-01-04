@@ -6,6 +6,7 @@ authors = ["Abra19 <evabrarova@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/Abra19/python-project-83"
+packages = [  { include = "page_analyzer" },]
 
 [tool.poetry.dependencies]
 python = "^3.10"
