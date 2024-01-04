@@ -1,5 +1,4 @@
 import validators
-import requests
 from urllib.parse import urlparse
 
 MAX_URL_LENGTH = 255

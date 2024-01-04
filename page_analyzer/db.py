@@ -82,10 +82,10 @@ def add_check(datas):
     with conn.cursor(cursor_factory=extras.NamedTupleCursor) as curs:
         query_insert = """
             INSERT INTO url_checks (
-                url_id, 
+                url_id,
                 status_code,
                 created_at
-            ) 
+            )
             VALUES (%s, %s, %s)
         """
         curs.execute(query_insert, (datas['id'], datas['code'], date.today()))
