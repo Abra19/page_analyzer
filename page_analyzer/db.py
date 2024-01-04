@@ -84,10 +84,20 @@ def add_check(datas):
             INSERT INTO url_checks (
                 url_id,
                 status_code,
+                h1,
+                title,
+                description,
                 created_at
             )
-            VALUES (%s, %s, %s)
+            VALUES (%s, %s, %s, %s, %s, %s)
         """
-        curs.execute(query_insert, (datas['id'], datas['code'], date.today()))
+        curs.execute(query_insert, (
+            datas['id'],
+            datas['code'],
+            datas['h1'],
+            datas['title'],
+            datas['descr'],
+            date.today()
+        ))
     conn.commit()
     conn.close()

@@ -11,7 +11,11 @@ from flask import (
     redirect
 )
 
-from page_analyzer.utils import validate, normalize_url
+from page_analyzer.utils import (
+    validate,
+    normalize_url,
+    parse_html
+)
 
 from page_analyzer.db import (
     get_data_by_name,
@@ -124,10 +128,9 @@ def post_checks(id):
         flash('Произошла ошибка при проверке', 'danger')
         return redirect(url_for('get_url_id', id=id), 302)
 
-    datas = {
-        'id': id,
-        'code': resp.status_code,
-    }
+    datas = parse_html(resp.text)
+    datas['id'] = id
+    datas['code'] = resp.status_code
 
     add_check(datas)
     return redirect(url_for('get_url_id', id=id), 302)
