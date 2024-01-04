@@ -7,7 +7,7 @@
 This project implements an application based on the Flask framework. The app analyses the selected pages for SEO suitability
 
 ### Requirements
-1. Python >=3.11
+1. Python >=3.10
 2. poetry >= 1.2.0
 3. Flask >= 3.0.0
 4. gunicorn >= 21.2.0
