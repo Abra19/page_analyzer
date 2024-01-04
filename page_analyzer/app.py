@@ -124,6 +124,7 @@ def post_checks(id):
 
     try:
         resp = requests.get(url.name)
+        flash('Страница успешно проверена', 'success')
     except requests.RequestException:
         flash('Произошла ошибка при проверке', 'danger')
         return redirect(url_for('get_url_id', id=id), 302)
