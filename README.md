@@ -10,7 +10,7 @@ This project implements an application based on the Flask framework. The app ana
 1. Python >=3.10
 2. poetry >= 1.2.0
 3. Flask >= 3.0.0
-4. gunicorn >= 21.2.0
+4. gunicorn >= 20.1.0
 
 
 ### To get started
