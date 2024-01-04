@@ -32,7 +32,13 @@ def get_data_by_id(id):
 def get_checks_by_id(url_id):
     conn = connect_db()
     with conn.cursor(cursor_factory=extras.NamedTupleCursor) as curs:
-        curs.execute('SELECT * FROM url_checks WHERE url_id=%s', (url_id,))
+        query_select = """
+            SELECT *
+            FROM url_checks
+            WHERE url_id=%s
+            ORDER BY id DESC
+        """
+        curs.execute(query_select, (url_id,))
         existing = curs.fetchall()
     conn.close()
     return existing
@@ -71,12 +77,17 @@ def add_url(url):
     return id
 
 
-def add_check(url_id):
+def add_check(datas):
     conn = connect_db()
     with conn.cursor(cursor_factory=extras.NamedTupleCursor) as curs:
-        curs.execute(
-            'INSERT INTO url_checks (url_id, created_at) VALUES (%s, %s)',
-            (url_id, date.today())
-        )
+        query_insert = """
+            INSERT INTO url_checks (
+                url_id, 
+                status_code,
+                created_at
+            ) 
+            VALUES (%s, %s, %s)
+        """
+        curs.execute(query_insert, (datas['id'], datas['code'], date.today()))
     conn.commit()
     conn.close()

@@ -1,4 +1,6 @@
 import validators
+import requests
+from urllib.parse import urlparse
 
 MAX_URL_LENGTH = 255
 
@@ -12,3 +14,8 @@ def validate(url):
     elif not validators.url(url):
         errors.append('Некорректный URL')
     return errors
+
+
+def normalize_url(url):
+    data = urlparse(url)
+    return f'{data.scheme}://{data.netloc}'
