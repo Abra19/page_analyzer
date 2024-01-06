@@ -1,0 +1,14 @@
+{% extends 'layouts/base_layout.html' %}
+
+{% block content %}
+
+<main class="flex-grow-1">
+  <h1 class="visually-hidden">Произошла ошибка</h1>
+  <div class="container-lg text-center">
+    <h2 class="display-1  mt-5 mb-5">Произошла ошибка</h2>
+    <p class="fs-3">Мы знаем про нее и уже чиним. Попробуйте снова через несколько минут</p>
+    <p class="fs-3"><a href="{{url_for('main')}}">Вернуться на главную</a></p>
+  </div>
+</main>
+
+{% endblock %}
